@@ -9,5 +9,5 @@ module.exports = defineConfig({
     headless: true, // Run tests in headless mode
     screenshot: 'only-on-failure', // Capture screenshots on failure
   },
-  reporter: [['html', { outputFolder: 'playwright-report' }]], // Generate HTML reports
+  reporter: [['html', { outputFolder: 'test-results' }]], // Generate HTML reports
 });
