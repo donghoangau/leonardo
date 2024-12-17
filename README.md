@@ -16,7 +16,7 @@ The test simulates a complete user flow of creating 4 images by AI
 
 1. **Clone the Repository**
    ```bash
-   git https://github.com/dhoang3110/leonardo.git
+   git clone https://github.com/donghoangau/leonardo
    cd leonardo
 
 2. **Install Dependencies:**
