@@ -35,38 +35,38 @@ test.describe('Create Your Custom Scrambler Ducati”', () => {
         await page.click(selector.createPage.generateButton)
 
         // When I fill in my details and accept the terms
-        await page.fill('input[name="firstName"]', 'My Firstname')
-        await page.fill('input[name="lastName"]', 'My Last Name')
-        await page.fill('input[name="email"]', 'test@gmail.com')
-        const dropdown = page.locator('button[role="combobox"][aria-label="Select Country"]').nth(0);
+        await page.fill(selector.formFields.firstName, 'My Firstname')
+        await page.fill(selector.formFields.lastName, 'My LastName')
+        await page.fill(selector.formFields.email, 'test@gmail.com')
+        const dropdown = page.locator(selector.formFields.dropDownMenu).nth(0);
 
         // Click to open the dropdown
         await dropdown.click();
-        await page.click('text=Australia')
-        await page.click('#terms-check')
-        await page.click('#privacy-policy-check')
+        await page.click(selector.formFields.country)
+        await page.click(selector.formFields.termCheck)
+        await page.click(selector.formFields.policyCheck)
 
         // And I click “Submit”
-        const submitButton = await page.locator('button.secondary-button:has-text("Submit")').first();
+        const submitButton = await page.locator(selector.formFields.submit).first();
         await submitButton.waitFor({ state: 'visible', timeout: 10000 });
         await submitButton.click()
 
         // And I wait for the generation process to complete
         // Then I should be able to choose one of the 4 images
-        const imag = await page.locator('.col-span-2 div.relative button:has(img[alt="generated image"])').nth(0)
+        const imag = await page.locator(selector.imagesSelect.fourImages).nth(0)
         await imag.waitFor({ state: 'visible', timeout: 60000 })
         await imag.click()
 
         // Then I should see the 4 generated images
-        const images = await page.locator('.col-span-2 div.relative button:has(img[alt="generated image"])')
+        const images = await page.locator(selector.imagesSelect.fourImages)
         const imageCount = await images.count()
         console.log(`Number of generated images: ${imageCount}`)
         expect(imageCount).toBe(4)
 
-        await page.click('button:has-text("Next")')
+        await page.click(selector.imagesSelect.nextButton)
 
         // Wait for the final image to load
-        const finalImage = await page.locator('xpath=//div[@class="col-span-2"]/img')
+        const finalImage = await page.locator(selector.imagesSelect.selectedImage)
 
         await finalImage.waitFor({ state: 'visible', timeout: 5000 })
 
@@ -85,7 +85,7 @@ test.describe('Create Your Custom Scrambler Ducati”', () => {
         // Assert resolution of the image should be 2056 x 1368
         expect(naturalWidth).toBe(2056)
         expect(naturalHeight).toBe(1368)
-        await page.click('button:has-text("DOWNLOAD")')
+        await page.click(selector.imagesSelect.selectedImage)
     })
 
 })
