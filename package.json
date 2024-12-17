@@ -1,0 +1,23 @@
+{
+  "name": "leonardo",
+  "version": "1.0.0",
+  "description": "This project contains an automated end-to-end (E2E) test for the scramblerducati website using Playwright in JavaScript.  The test simulates a complete user flow of creating 4 images by AI",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/donghoangau/leonardo.git"
+  },
+  "keywords": [],
+  "author": "Dong Hoang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/donghoangau/leonardo/issues"
+  },
+  "homepage": "https://github.com/donghoangau/leonardo#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.49.1"
+  }
+}
