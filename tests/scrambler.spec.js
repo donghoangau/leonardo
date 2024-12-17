@@ -34,11 +34,6 @@ test.describe('Create Your Custom Scrambler Ducati”', () => {
         await page.fill(selector.createPage.textDescription, 'Bicycle')
         await page.click(selector.createPage.generateButton)
 
-        await page.pause()
-
-        // const waitingGeneratingText = await page.textContent(selector.createPage.waitingGeneratingText)
-        // expect(waitingGeneratingText).toBe('Your Generation is in progress. It may take up to a minute.')
-
         // When I fill in my details and accept the terms
         await page.fill('input[name="firstName"]', 'My Firstname')
         await page.fill('input[name="lastName"]', 'My Last Name')
